@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-score-add',
   templateUrl: './score-add.component.html',
@@ -11,5 +10,4 @@ export class ScoreAddComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
