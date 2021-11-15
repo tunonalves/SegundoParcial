@@ -13,12 +13,16 @@
         </thead>
         <tbody>
         <tr *ngFor="let student of arrayStudent">
-            <th scope="row">{{student.studentId}}</th>
-            <td>{{student.carrerId}}</td>
-            <td>{{student.firstname}}</td>
-            <td>{{student.lastname}}</td>
-            <td>{{student.email}}</td>
-            <td><button class="btn btn-primary btn-sm">Add Score</button></td>
+            <div *ngFor="let career of arraycareer">
+                <div *ngIf="(student.carrerId == career.careerId)">
+                    <th scope="row">{{student.studentId}}</th>
+                    <td>{{career.name}}</td>
+                    <td>{{student.firstname}}</td>
+                    <td>{{student.lastname}}</td>
+                    <td>{{student.email}}</td>
+                    <td><button class="btn btn-primary btn-sm">Add Score</button></td>
+                </div>
+            </div>
         </tr>
         </tbody>
     </table>

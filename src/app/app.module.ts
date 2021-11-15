@@ -7,6 +7,7 @@ import { StudentListComponent } from './components/student-list/student-list.com
 import { ScoreListComponent } from './components/score-list/score-list.component';
 import { ScoreAddComponent } from './components/score-add/score-add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule  
+    ReactiveFormsModule,
+    HttpClientModule  
   ],
   providers: [],
   bootstrap: [AppComponent]
