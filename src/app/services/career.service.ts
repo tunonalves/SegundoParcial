@@ -13,8 +13,13 @@ export class CareerService {
 
   constructor(private http: HttpClient) { }
 
-  getcareer(careerId: number):Observable<Career>{
-    const url = this.baseURL + careerId;
+  getcareer():Observable<Career>{
+    const url = this.baseURL;
     return this.http.get<Career>(url);
+  }
+
+  getcareer2():Promise<any>{
+    const url = this.baseURL;
+    return this.http.get(url).toPromise();
   }
 }

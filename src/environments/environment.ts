@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiURL: 'https://utn-lubnan-api-3.herokuapp.com/'
+  apiURL: 'https://utn-lubnan-api-3.herokuapp.com'
 };
 
 /*

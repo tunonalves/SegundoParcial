@@ -17,4 +17,9 @@ export class StudentsService {
     const url = this.baseURL;
     return this.http.get<Students>(url);
   }
+
+  getStudent2():Promise<any>{
+    const url = this.baseURL;
+    return this.http.get(url).toPromise();
+  }
 }
