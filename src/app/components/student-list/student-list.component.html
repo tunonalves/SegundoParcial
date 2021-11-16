@@ -11,18 +11,18 @@
             <th scope="col">Action</th>
         </tr>
         </thead>
-        <tbody>
-        <tr *ngFor="let student of studentlist">
-            <!--<div *ngFor="let career of arraycareer">
-                <div *ngIf="(student.carrerId == career.careerId)">-->
+        <tbody *ngFor="let student of studentlist">
+        <tr *ngIf="student.isActive == true">
+            <!--<div *ngFor="let career of careerlist">-->
+                <!--<div *ngIf="career.careerId == student.carrerId">-->
                     <th scope="row">{{student.studentId}}</th>
                     <td>{{student.carrerId}}</td>
                     <td>{{student.firstname}}</td>
                     <td>{{student.lastname}}</td>
                     <td>{{student.email}}</td>
                     <td><button class="btn btn-primary btn-sm">Add Score</button></td>
-               <!-- </div>
-            </div>-->
+               <!--</div>-->
+            <!--</div>-->
         </tr>
         </tbody>
     </table>
