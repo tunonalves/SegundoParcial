@@ -49,6 +49,7 @@ export class StudentListComponent implements OnInit {
     this.servicestudent.getStudent2()
       .then(Response =>{
         this.studentlist = Response;
+        console.log(this.studentlist);
     })
     .catch(error => { 
     });

@@ -1,8 +1,8 @@
 export interface Students {
 	studentId: number;
-	carrerId: number;
-	firstname: string;
-	lastname: string;
+	careerId: number;
+	firstName: string;
+	lastName: string;
 	email: string;
 	isActive: boolean;
 }

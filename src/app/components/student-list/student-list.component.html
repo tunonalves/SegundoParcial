@@ -12,17 +12,13 @@
         </tr>
         </thead>
         <tbody *ngFor="let student of studentlist">
-        <tr *ngIf="student.isActive == true">
-            <!--<div *ngFor="let career of careerlist">-->
-                <!--<div *ngIf="career.careerId == student.carrerId">-->
-                    <th scope="row">{{student.studentId}}</th>
-                    <td>{{student.carrerId}}</td>
-                    <td>{{student.firstname}}</td>
-                    <td>{{student.lastname}}</td>
-                    <td>{{student.email}}</td>
-                    <td><button class="btn btn-primary btn-sm">Add Score</button></td>
-               <!--</div>-->
-            <!--</div>-->
+        <tr>
+             <th scope="row">{{student.studentId}}</th>
+            <td>{{student.careerId}}</td>
+            <td>{{student.firstName}}</td>
+            <td>{{student.lastName}}</td>
+            <td>{{student.email}}</td>
+            <td><button class="btn btn-primary btn-sm">Add Score</button></td>
         </tr>
         </tbody>
     </table>
