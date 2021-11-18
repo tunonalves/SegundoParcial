@@ -5,6 +5,7 @@ import { Career } from '../models/careers';
 import { Students } from '../models/students';
 import { CareerService } from './career.service';
 import { StudentsService } from './students.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class ActiveStudentService {
   activeStudenList: Array<ActiveStudents> = [];
 
 
-  constructor(private studentservice: StudentsService, private careerservice: CareerService) { }
+  constructor(private studentservice: StudentsService, private careerservice: CareerService, private RT: Router) { }
 
   ngOnInit(): void {
   }
@@ -31,10 +32,10 @@ export class ActiveStudentService {
               this.studentlist.forEach(student =>{
                 this.carrerlist.forEach(career =>{
                   if(student.careerId == career.careerId && career.isActive == true){
-                    console.log(student);
-                    console.log(career);
-                    let studentactive = new ActiveStudents(student.studentId,career.name,student.firstName,student.lastName,student.email)
+                    console.log(student.studentId);
+                    let studentactive = new ActiveStudents(student.studentId,career.name,student.firstName,student.lastName,student.email);
                     this.activeStudenList.push(studentactive);
+                    //console.log(this.activeStudenList)
                   }
                 })
               })
@@ -43,5 +44,8 @@ export class ActiveStudentService {
     return this.activeStudenList;
   }
 
+  getStudentbyID(IDStudent: number){
+    this.RT.navigate(['/Student-list',IDStudent,'/Score-add']);
+  }
 
 }

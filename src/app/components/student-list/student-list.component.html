@@ -11,14 +11,14 @@
             <th scope="col">Action</th>
         </tr>
         </thead>
-        <tbody *ngFor="let student of studentlist">
-        <tr>
+        <tbody>
+        <tr *ngFor="let student of StudentActive">
              <th scope="row">{{student.studentId}}</th>
-            <td>{{student.careerId}}</td>
+            <td>{{student.career}}</td>
             <td>{{student.firstName}}</td>
             <td>{{student.lastName}}</td>
             <td>{{student.email}}</td>
-            <td><button class="btn btn-primary btn-sm">Add Score</button></td>
+            <td><button class="btn btn-primary btn-sm" (click)="AddScore(student.studentId)">Add Score</button></td>
         </tr>
         </tbody>
     </table>

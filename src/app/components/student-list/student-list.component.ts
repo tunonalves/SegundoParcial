@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Students } from 'src/app/models/students';
-import { CareerService } from 'src/app/services/career.service';
-import { StudentsService } from 'src/app/services/students.service';
-import { Career } from 'src/app/models/careers';
+import { Router } from '@angular/router';
+import { ActiveStudents } from 'src/app/models/ActiveStudent';
+import { ActiveStudentService } from 'src/app/services/active-student.service';
 @Component({
   selector: 'app-student-list',
   templateUrl: './student-list.component.html',
@@ -10,48 +9,15 @@ import { Career } from 'src/app/models/careers';
 })
 export class StudentListComponent implements OnInit {
 
-  studentlist: Array<Students> = new Array<Students>();
-  careerlist: Array<Career> = new Array<Career>();
+  StudentActive: Array<ActiveStudents> = [];
 
-  constructor(private servicestudent: StudentsService, private servicecareer: CareerService) { }
+  constructor(private activestudent: ActiveStudentService, private RT: Router) { }
 
   ngOnInit(): void {
-    this.getstudent2();
-    this.getcareer2();
+    this.StudentActive = this.activestudent.getActiveStudent()
   }
 
-  getcareer(){
-    this.servicecareer.getcareer().subscribe((careerfromapi: Career)=>{
-      this.careerlist.push(careerfromapi);
-    },(err2: any)=>{
-      console.error(err2);
-    });
-  }
-
-  getcareer2(){
-    this.servicecareer.getcareer2()
-      .then(Response =>{
-        this.careerlist = Response;
-    })
-    .catch(error => { 
-    });
-  }
-
-  getstudent(){
-    this.servicestudent.getStudent().subscribe((studentFromTheApi: Students) => {
-      this.studentlist.push(studentFromTheApi);
-    },(err: any) =>{
-      console.error(err);
-    });
-  }
-
-  getstudent2(){
-    this.servicestudent.getStudent2()
-      .then(Response =>{
-        this.studentlist = Response;
-        console.log(this.studentlist);
-    })
-    .catch(error => { 
-    });
+  AddScore(IDStudent: number){
+    this.RT.navigate(['/Student-list',IDStudent,'/Score-add']);
   }
 }

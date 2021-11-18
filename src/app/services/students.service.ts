@@ -9,7 +9,8 @@ import { Students } from '../models/students';
 })
 export class StudentsService {
 
-  baseURL = environment.apiURL + '/api/Student';
+  baseURL = environment.apiURL + '/api/Student/';
+  baseURL2 = environment.apiURL + '/api/Student/GetByEmail/';
   
   constructor(private http: HttpClient) { }
 
@@ -21,5 +22,10 @@ export class StudentsService {
   getStudent2():Promise<any>{
     const url = this.baseURL;
     return this.http.get(url).toPromise();
+  }
+
+  getByEmail(email: string): Promise<any> {
+    return this.http.get(this.baseURL2 + email)
+      .toPromise();
   }
 }
